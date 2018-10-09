@@ -7,7 +7,7 @@
 
 ?>
 
-<!doctype html>
+<!doctype ht$yl>
 <html lang="ru">
 <head>
   <!-- Required meta tags -->
@@ -35,18 +35,71 @@ function getTrueHour($H) {
       switch ($H % 10) {
         case 1:
           $hour = $H . ' час ';
+          break;
         case 2:
         case 3:
         case 4:
           $hour = $H . ' часа ';
+          break;
         default:
           $hour = $H . ' часов ';
       }
   }
   return $hour;
 }
+
+function getTrueMinutes($M) {
+  switch ($M % 100) {
+    case 12:
+    case 13:
+    case 14:
+      $minute = $M . ' минут ';
+      break;
+    default:
+      switch ($M % 10) {
+        case 1:
+          $minute = $M . ' минута ';
+          break;
+        case 2:
+        case 3:
+        case 4:
+          $minute = $M . ' минуты ';
+          break;
+        default:
+          $minute = $M . ' минут ';
+      }
+  }
+  return $minute;
+}
+
+function getTrueSeconds($S) {
+  switch ($S % 100) {
+    case 12:
+    case 13:
+    case 14:
+      $seconds = $S . ' секунд ';
+      break;
+    default:
+      switch ($S % 10) {
+        case 1:
+          $seconds = $S . ' секунда ';
+          break;
+        case 2:
+        case 3:
+        case 4:
+          $seconds = $S . ' секунды ';
+          break;
+        default:
+          $seconds = $S . ' секунд ';
+      }
+  }
+  return $seconds;
+}
+
 function getTime($H, $M, $S) {
   $hour = getTrueHour($H);
+  $minute = getTrueMinutes($M);
+  $second = getTrueSeconds($S);
   $time = $hour . $minute . $second;
   return $time;
 }
