@@ -5,25 +5,6 @@
  * 21 час 43 минуты
  */
 
-?>
-
-<!doctype ht$yl>
-<html lang="ru">
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-  <title>Hello, world!</title>
-</head>
-<body>
-<h1>Текущее время:</h1>
-<?php
-
 function getTrueHour($H) {
   switch ($H % 100) {
     case 12:
@@ -107,6 +88,25 @@ function getTime($H, $M, $S) {
 date_default_timezone_set("UTC");
 $time = time();
 $time += 3 * 3600;
+?>
+
+<!doctype ht$yl>
+<html lang="ru">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="Refresh" content="1" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <title>Hello, world!</title>
+</head>
+<body>
+<h1>Текущее время:</h1>
+<?php
 echo "<h3>" . getTime(date("H", $time), date("i", $time), date("s", $time)) . "</h3>";
 ?>
 
@@ -123,3 +123,4 @@ echo "<h3>" . getTime(date("H", $time), date("i", $time), date("s", $time)) . "<
         crossorigin="anonymous"></script>
 </body>
 </html>
+
