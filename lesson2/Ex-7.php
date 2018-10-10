@@ -90,7 +90,7 @@ $time = time();
 $time += 3 * 3600;
 ?>
 
-<!doctype ht$yl>
+<!doctype html>
 <html lang="ru">
 <head>
   <!-- Required meta tags -->
