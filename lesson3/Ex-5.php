@@ -4,15 +4,16 @@
  */
 
 function chgSpcToUnderine($someString) {
-  //create array
+  //create arraye
   $arrChar = preg_split('//u', $someString, null, PREG_SPLIT_NO_EMPTY);
   $newArr = array_map(function ($elem) {
     //Space change to _, else return char without change
     return ($elem == " ") ? "_" : $elem;
   }, $arrChar);
   //return new array as string
-  return implode('', $newArr)."\n";
+  return implode('', $newArr) . "\n";
 }
+
 $a = "Test tring #1. It's great.";
 $b = "Тестовая строка №2. Всё работает.";
 
