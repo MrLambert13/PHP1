@@ -44,14 +44,29 @@ $abc = [
 
 function transliting($someWord) {
   //convert string to array of chars
-  $charsArray = preg_split('//u', $someWord,  null, PREG_SPLIT_NO_EMPTY);
-  array_walk($charsArray, function ($elem) {
-    global $abc;
-    $key = array_search($elem, $abc);
-    echo $key . "\n";
-  });
+  $charsArray = preg_split('//u', $someWord, null, PREG_SPLIT_NO_EMPTY);
+  //для доступа к внешнему массиву
+  global $abc;
+  //массив в который сложим все переведенные буквы
+  $newArr = [];
+  //проходим по массиву
+  foreach ($charsArray as $item) {
+    //если символ есть в ключах глобального массива abc
+    if (array_search($item, array_keys($abc))) {
+      //номер ключа найденного элемента
+      $key = array_search($item, array_keys($abc));
+      //ложим транслитированную букву в массив
+      array_push($newArr, $abc[array_keys($abc)[$key]]);
+    } else {
+      //если это не буква из массива abc то просто возвращаем как есть
+      array_push($newArr, $item);
+    }
+  }
+  //возвращаем массив в виде строки
+  return implode($newArr);
 }
 
-echo transliting('Сергей ловит рыбу.');
+echo transliting('сергей ловит рыбу.') ."\n";
+echo transliting('заковыристое выражение');
 
 
