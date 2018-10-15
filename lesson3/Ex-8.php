@@ -24,16 +24,12 @@ $regions = [
         'Комарово'
     ]
 ];
-
 //show all array
 foreach ($regions as $regionName => $cityArr) {
   //print region name
-  echo $regionName . " область:\n".
-    "Города начинающиеся на \"К\":\n";
+  echo $regionName . " область:\n";
   foreach ($cityArr as $cityName) {
-    //TODO substr not working
-    echo mb_substr($cityName, 0 ,1);
-    if ($cityName[0] == "К") {
+    if (mb_substr($cityName, 0 ,1) == "К") {
       echo $cityName . "\n";
     }
   }
