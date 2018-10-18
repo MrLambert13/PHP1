@@ -69,7 +69,6 @@ $pathToImgFolder = 'img/gallery/';
 </head>
 <body>
 <div class="galleryPreviewsContainer">
-<!--  <img src="img/image1.jpg" data-full_image_url="img/image1.jpg" alt="Картинка1">-->
   <?php
   //all files, without current and parrent directories
   $arrImg = array_diff(scandir($pathToImgFolder), array('..', '.'));
