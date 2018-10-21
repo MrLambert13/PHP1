@@ -10,9 +10,6 @@ require '../config/main.php';
 include '../engine/database.php';
 
 $user = getItem('select * from `users`');
-//$link = mysqli_connect('localhost', 'root', '123456', 'geek_project');
-//$result = mysqli_query($link, 'select * from `users`');
-//var_dump($result);
 
 ?>
 <!doctype html>
