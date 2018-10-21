@@ -21,6 +21,7 @@ $picture = getItem("select * from `pictures` WHERE id={$_GET['id']}");
 </head>
 <body>
         <?php
+//        выводим изображение в полном размере
         echo "<img src=\"$picture[path]\" alt=\"$picture[name]\""
           . "<br/><h3>Likes: $picture[count_saw]</h3>";
         ?>
