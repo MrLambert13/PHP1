@@ -20,6 +20,19 @@ function getItem(string $sql) {
     return $row;
 }
 
+/** Функция увеличения количетсва просмотров
+ * @param $id {string} - id картинки из галереи
+ */
+function likePicture($id) {
+  global $connection;
+  $result = mysqli_query($connection, "select * from `pictures` WHERE id={$_GET['id']}");
+  $row = mysqli_fetch_assoc($result);
+  $likeCount = (int)$row[count_saw] + 1;
+  mysqli_query($connection, "UPDATE `pictures` SET `count_saw` = $likeCount WHERE (`id` = $id)");
+
+
+
+}
 function getItemArray(string $sql) {
     // получение нескольких строк
     global $connection;
