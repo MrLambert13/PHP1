@@ -1,5 +1,4 @@
 <?php
-var_dump($_POST);
 $x = $_POST['first'];
 $y = $_POST['second'];
 switch ($_POST['option']) {
@@ -13,10 +12,9 @@ switch ($_POST['option']) {
     $result = "$x * $y = " . ($x * $y);
     break;
   case '4':
-    $result = ($y != 0) ? "$x + $y = " . ($x + $y) : "division by ZERO!";
+    $result = ($y != 0) ? "$x / $y = " . ($x / $y) : "division by ZERO!";
     break;
 }
-
 ?>
 
 <h1><?php echo $result;?></h1>
