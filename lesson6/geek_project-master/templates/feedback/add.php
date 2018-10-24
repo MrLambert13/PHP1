@@ -1,6 +1,3 @@
-<?php
-var_dump($_POST);
-?>
 <form method="post">
   <div class="input-group mb-3">
     <div class="input-group-prepend">
