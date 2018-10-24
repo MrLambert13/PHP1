@@ -33,6 +33,9 @@
       <li class="nav-item">
         <a class="nav-link" href="/calc.php?ver2">Calculator v.2</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/feedbacks.php">Feedbacks</a>
+      </li>
     </ul>
   </div>
 </nav>

@@ -15,7 +15,6 @@
  */
 function render(string $template, array $data = [], bool $withLayout = true, string $layout = 'layout') {
     global $config;
-
     // путь к шаблонам
     $templates = [
         'layout' => "{$config['app']['templatesPath']}/{$layout}.php",
