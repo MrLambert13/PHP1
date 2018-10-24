@@ -15,3 +15,4 @@ $message = 'Hello from index.php!';
 echo render('site/example', [
     'message' => $message
 ]);
+

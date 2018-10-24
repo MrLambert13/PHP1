@@ -18,8 +18,8 @@ $connection = mysqli_connect(
  */
 function getItem(string $sql) {
     global $connection;
-    $result = mysqli_query($connection, $sql);
 
+    $result = mysqli_query($connection, $sql) or die("Что-то пошло не так");
     $row = mysqli_fetch_assoc($result);
     return $row;
 }
@@ -31,7 +31,7 @@ function getItem(string $sql) {
  */
 function getItemArray(string $sql) {
     global $connection;
-    $result = mysqli_query($connection, $sql);
+    $result = mysqli_query($connection, $sql) or die("Что-то пошло не так");;
 
     $rows = [];
 
