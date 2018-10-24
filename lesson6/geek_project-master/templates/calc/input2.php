@@ -1,3 +1,8 @@
+<?php
+var_dump($_POST);
+
+?>
+
 <form method="POST">
   <div class="input-group mb-3">
     <div class="input-group-prepend">
@@ -29,7 +34,10 @@
   </div>
 
   <div class="form-group">
-    <button type="submit">OK</button>
+    <button name="option" value="1" type="submit">+</button>
+    <button name="option" value="2" type="submit">-</button>
+    <button name="option" value="3" type="submit">*</button>
+    <button name="option" value="4" type="submit">/</button>
   </div>
 </form>
 

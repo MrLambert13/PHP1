@@ -4,7 +4,13 @@
 require '../config/main.php';
 require '../engine/core.php';
 
-echo render('calc/input');
+if (isset($_GET['ver2'])) {
+  echo render('calc/input2');
+} elseif (isset($_POST['first'])) {
+  echo render('calc/result');
+} else {
+  echo render('calc/input');
+}
 
 ?>
 
