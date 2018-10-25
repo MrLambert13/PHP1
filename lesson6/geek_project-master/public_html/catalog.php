@@ -9,8 +9,6 @@ require '../engine/core.php';
 
 $allProducts = getItemArray("SELECT * FROM `products`");
 
-var_dump($allProducts);
-
 echo render('catalog/viewAll', [
   'products' => $allProducts
 ]);
