@@ -1,1 +1,1 @@
-<h1>home user</h1>
+<h1>Welcome back, <?= $_SESSION['auth']['login']?>!</h1>
