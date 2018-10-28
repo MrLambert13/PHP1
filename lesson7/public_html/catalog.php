@@ -12,6 +12,7 @@ if (isset($_GET['id'])) {
     'product' => getItem("SELECT * FROM `products` WHERE id={$_GET['id']}"),
   ]);
 } else {
+  //нажали кнопку "купить"
   if (isset($_GET['add'])) {
     addGood($_GET['add']);
   }
@@ -21,6 +22,7 @@ if (isset($_GET['id'])) {
   ]);
 }
 
+//добавить товар в сессию по id
 function addGood($id_product) {
   if ($_SESSION['cart'][$id_product]) { //
     $_SESSION['cart'][$id_product] += 1;
