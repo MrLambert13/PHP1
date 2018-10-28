@@ -2,6 +2,7 @@
 
 $items = [
   ['label' => 'Home', 'url' => '/'],
+  ['label' => 'Catalog', 'url' => '/catalog.php'],
   ['label' => 'Reviews', 'url' => '/reviews.php'],
   ['label' => 'Login', 'url' => '/user.php', 'role' => '?'],
   //добавил имя пользователя в навбар, а то не комильфо

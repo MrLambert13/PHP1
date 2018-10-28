@@ -11,6 +11,8 @@ $connection = mysqli_connect(
     $config['db']['database']
 );
 
+mysqli_set_charset($connection, 'utf8');
+
 /**
  * Получение одной строки из базы данныз по SQL запросу
  * @param string $sql
