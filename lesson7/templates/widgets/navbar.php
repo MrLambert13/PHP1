@@ -11,6 +11,7 @@ $items = [
     'role' => '@'],
   ['label' => 'Logout', 'url' => '/user.php?action=logout', 'role' => '@'],
 ];
+var_dump($_SESSION['cart']);
 
 ?>
 

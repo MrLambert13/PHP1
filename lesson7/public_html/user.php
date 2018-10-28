@@ -39,9 +39,25 @@ function login() {
   echo render('user/login');
 }
 
+function deleteGood($id_product) {
+  unset($_SESSION['cart'][$id_product]);
+}
+
 function home() {
-  // ДЗ
-  echo render('user/home');
+  if ($_GET['delete']) {
+    deleteGood($_GET['delete']);
+  }
+  if ($_SESSION['cart']) {
+    $filter = join(", ", array_keys($_SESSION['cart']));
+    echo render('user/home', [
+      'products' => getItemArray("SELECT * FROM `products` WHERE id IN ({$filter})"),
+    ]);
+  } else {
+    echo render('user/home', [
+      'message' => "Корзина пуста.",
+    ]);
+  }
+
 }
 
 if (isset($_GET['action'])) {
