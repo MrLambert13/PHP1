@@ -44,12 +44,15 @@ function deleteGood($id_product) {
 }
 
 function home() {
+  //Если была нажата кнопка удалить
   if ($_GET['delete']) {
     deleteGood($_GET['delete']);
   }
+  //Проверка корзины, пуста или нет
   if ($_SESSION['cart']) {
     $filter = join(", ", array_keys($_SESSION['cart']));
     echo render('user/home', [
+      //выбираем добавленные в корзину товары.
       'products' => getItemArray("SELECT * FROM `products` WHERE id IN ({$filter})"),
     ]);
   } else {

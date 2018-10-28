@@ -5,6 +5,11 @@ $category = getItem("SELECT * FROM `products_category` WHERE id={$product['id_ca
 
   <h2><?= $product['name'] ?></h2>
   <h4><?= $product['price'] ?> руб.</h4>
+  <?php if ($_SESSION['auth']['login']) : ?>
+    <form>
+      <button type="submit" name="add" value="<?= $product['id'] ?>" class="btn btn-outline-primary">Купить</button>
+    </form>
+  <?php endif; ?>
   <h5>Категория: <?= $category['name'] ?></h5>
   <span><img style="width: 70%" src="<?= $product['photo1']?>"</span>
   <p><?= $product['description'] ?></p>
