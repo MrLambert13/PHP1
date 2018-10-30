@@ -12,7 +12,7 @@ function routeIndex()
     // грузим элементы из сессии, если есть (с подгрузкой названия из БД)
     if (isset($_SESSION['cart'])) {
         foreach ($_SESSION['cart']['items'] as $item) {
-            $product = getItem("select `name` from product where id={$item['id']}");
+            $product = getItem("select `name` from products where id={$item['id']}");
 
             $orderItems[] = [
                 'id' => $item['id'],

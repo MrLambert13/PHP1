@@ -7,7 +7,7 @@ require '../../engine/core.php';
  */
 function routeIndex() {
     $cats = getItemArray(
-        "select * from category"
+        "select * from products_category"
     );
 
     echo render('shop/categories', [
@@ -22,7 +22,7 @@ function routeView() {
     $id = $_GET['id'];
 
     $prods = getItemArray(
-        "select * from product where category_id={$id}"
+        "select * from products where id_category={$id}"
     );
 
     echo render('shop/products', [

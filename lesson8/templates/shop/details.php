@@ -1,6 +1,10 @@
 <h1><?= $item['name'] ?></h1>
 
 <p>
+  <img style="width: 70%" src="<?= $item['photo1']?>">
+</p>
+
+<p>
     <?= $item['description'] ?>
 </p>
 
@@ -9,7 +13,7 @@
 </p>
 
 <p>
-    Осталось: <?= $item['quantity'] ?>
+    Осталось: <?= $item['count'] ?>
 </p>
 
 <p>

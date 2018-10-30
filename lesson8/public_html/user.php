@@ -23,7 +23,6 @@ function routeLogin()
         $password = $_POST['password'];
 
         $user = getItem("select * from users where login='{$login}'");
-
         if ($user != false) {
             if (password_verify($password, $user['password'])) {
                 if (isset($_POST['remember'])) {
@@ -56,7 +55,6 @@ function routeRegister()
     if (isset($_POST['reg_user'])) {
         $login = $_POST['login'];
         $password = $_POST['password'];
-
         // хешируем пароль
         $password = password_hash($password, PASSWORD_DEFAULT);
 

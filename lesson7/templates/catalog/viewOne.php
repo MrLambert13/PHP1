@@ -11,7 +11,7 @@ $category = getItem("SELECT * FROM `products_category` WHERE id={$product['id_ca
     </form>
   <?php endif; ?>
   <h5>Категория: <?= $category['name'] ?></h5>
-  <span><img style="width: 70%" src="<?= $product['photo1']?>"</span>
+  <span><img style="width: 70%" src="<?= $product['photo1']?>"></span>
   <p><?= $product['description'] ?></p>
   <?php if($product['photo2']) : ?>
     <span><img style="width: 70%" src="<?= $product['photo2']?>"</span>

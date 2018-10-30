@@ -9,7 +9,7 @@ function routeIndex() {
     $id = $_GET['id'];
 
     $item = getItem(
-        "select * from product where id={$id}"
+        "select * from products where id={$id}"
     );
 
     echo render('shop/details', [

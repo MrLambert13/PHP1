@@ -3,9 +3,9 @@
 return [
     //  Настройки базы данных
     'db' => [
-        'user' => 'root',
-        'password' => 'root',
-        'host' => 'mysql',
+        'user' => 'mysql',
+        'password' => 'mysql',
+        'host' => 'localhost',
         'database' => 'geek_project',
     ]
 ];

@@ -34,6 +34,7 @@ function loginUser(string $login, bool $remember = false)
 {
     // загружаем пользователя из БД
     $user = getItem("select * from users where login='{$login}'");
+
     // запоминаем логин в сессии
     $_SESSION['auth'] = [
         'id' => $user['id'],
@@ -96,7 +97,7 @@ function setCook(string $key, $value) {
         $value,
         time() + 3600 * 2, //seconds
         '/',
-        'geekbrains.local',
+        'localhost',
         true,
         true
     );
