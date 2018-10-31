@@ -2,7 +2,7 @@
 
   <!--//вывод списка заказов
   // с кнопкой удалить-->
-  <? foreach ($orders as $order) : ?>
+  <?php foreach ($orders as $order) : ?>
     <div class="card item<?= $order['id'] ?>">
       <div class="card-header">
         <h3>Заказ № <?= $order['id'] ?></h3>

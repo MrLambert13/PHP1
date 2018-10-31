@@ -10,5 +10,6 @@
     <li class="list-group-item">Поддержка AJAX запросов (JSON ответы)</li>
     <li class="list-group-item">Добавление в корзину</li>
     <li class="list-group-item">Оформление заказа</li>
-    <li class="list-group-item">Управление заказами !NEW!</li>
+    <li class="list-group-item">Управление заказами !NEW! (В ЛК)</li>
+    <li class="list-group-item">Функционал управления товарами !NEW! (В каталоге)</li>
 </ul>

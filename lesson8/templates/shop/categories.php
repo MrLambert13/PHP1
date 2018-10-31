@@ -8,7 +8,7 @@
         </a>
     </li>
     <?php endforeach; ?>
-  <? if (isAdmin()) :?>
+  <?php if (isAdmin()) :?>
     <a href="/shop/category.php?action=addgood" class="btn btn-primary"  value="Input">Добавление товара</a>
-  <? endif; ?>
+  <?php endif; ?>
 </ul>
