@@ -1,22 +1,23 @@
 <h1>Добро пожаловать, <?= $_SESSION['auth']['login'] ?></h1>
 
-<? if (isAdmin()) :?>
   <!--//вывод списка заказов
   // с кнопкой удалить-->
-<? foreach ($orders as $order) :?>
-    <?php
-    ?>
-  <h2>Заказ № <?= $order['id'] ?></h2>
-  <p>Заказал <?= $users[$order['user_id']]['login'] ?></p>
-<!--  TODO-->
-
-  <button class="btn btn-outline-danger" data-it="<?=  $order['id'] ?>" id="remove-order">Удалить заказ</button>
+  <? foreach ($orders as $order): ?>
+    <div class="card item<?= $order['id'] ?>">
+      <div class="card-header">
+        <h3>Заказ № <?= $order['id'] ?></h3>
+      </div>
+      <div class="card-body">
+        <p>
+          Описание заказа
+        </p>
+        <button class="btn btn-outline-danger remove-order" data-id="<?= $order['id'] ?>" id="remove-order">Удалить
+          заказ
+        </button>
+      </div>
+    </div>
   <?php endforeach; ?>
 
-<? endif; ?>
 
-<?php
-var_dump(array_search($orders[1]['id'], $users));
-?>
 
-<script src="/js/"'></script>
+<script src="/js/orders.js" defer></script>
