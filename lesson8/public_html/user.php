@@ -3,72 +3,77 @@
 // поключаем конфигурации приложения
 require '../engine/core.php';
 
-function routeIndex()
-{
-    // перехват стандартного действия
-    routeLogin();
+function routeIndex() {
+  // перехват стандартного действия
+  routeLogin();
 }
 
 // страница с формой входа
-function routeLogin()
-{
-    // редирект если уже авторизован
-    if (isLoggedUser()) {
+function routeLogin() {
+  // редирект если уже авторизован
+  if (isLoggedUser()) {
+    header("Location: /user.php?action=home");
+  }
+
+  // проверка данных из формы
+  if (isset($_POST['login_user'])) {
+    $login = $_POST['login'];
+    $password = $_POST['password'];
+
+    $user = getItem("select * from users where login='{$login}'");
+    if ($user != false) {
+      if (password_verify($password, $user['password'])) {
+        if (isset($_POST['remember'])) {
+          loginUser($login, true);
+        } else {
+          loginUser($login);
+        }
+
         header("Location: /user.php?action=home");
+      }
     }
+  }
 
-    // проверка данных из формы
-    if (isset($_POST['login_user'])) {
-        $login = $_POST['login'];
-        $password = $_POST['password'];
-
-        $user = getItem("select * from users where login='{$login}'");
-        if ($user != false) {
-            if (password_verify($password, $user['password'])) {
-                if (isset($_POST['remember'])) {
-                    loginUser($login, true);
-                } else {
-                    loginUser($login);
-                }
-
-                header("Location: /user.php?action=home");
-            }
-        }
-    }
-
-    echo render('user/login');
+  echo render('user/login');
 }
 
-function routeLogout()
-{
-    logoutUser();
+function routeLogout() {
+  logoutUser();
 }
 
-function routeHome()
-{
+function routeHome() {
+  if (isAdmin()) {
+    echo render('user/home', [
+      'orders' => getItemArray("SELECT * FROM `order`"),
+      'order_items' => getItemArray("SELECT * FROM `order_item`"),
+      'products' => getItemArray("SELECT * FROM `products`"),
+      'category' => getItemArray("SELECT * FROM `products_category`"),
+      'users' => getItemArray("SELECT * FROM `users`"),
+    ]);
+  } else {
     echo render('user/home');
+  }
 }
 
-function routeRegister()
-{
-    // грузим из POST
-    if (isset($_POST['reg_user'])) {
-        $login = $_POST['login'];
-        $password = $_POST['password'];
-        // хешируем пароль
-        $password = password_hash($password, PASSWORD_DEFAULT);
+function routeRegister() {
+  // грузим из POST
+  if (isset($_POST['reg_user'])) {
+    $login = $_POST['login'];
+    $password = $_POST['password'];
+    // хешируем пароль
+    $password = password_hash($password, PASSWORD_DEFAULT);
 
-        // готовим запрос SQL
-        $sql = "insert into users (`login`, `password`) values ('{$login}', '{$password}')";
+    // готовим запрос SQL
+    $sql = "insert into users (`login`, `password`) values ('{$login}', '{$password}')";
 
-        if (execute($sql)) {
-            // авторизуем
-            loginUser($login, true);
-            header("Location: /user.php?action=home");
-        }
+    if (execute($sql)) {
+      // авторизуем
+      loginUser($login, true);
+      header("Location: /user.php?action=home");
     }
+  }
 
-    echo render('user/register');
+  echo render('user/register');
 }
 
 route();
