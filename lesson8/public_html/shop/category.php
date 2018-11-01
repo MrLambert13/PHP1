@@ -10,6 +10,26 @@ function routeIndex() {
     "select * from products_category"
   );
 
+  //если нажата добавить категорию
+  if (isset($_POST['add_category']) && !empty($_POST['name'])) {
+    $sqlAddCat = "INSERT INTO `products_category` (`name`) VALUES ('{$_POST['name']}')";
+    if (execute($sqlAddCat)) {
+      header("Location: /shop/category.php");
+    } else {
+      echo "=(";
+    }
+  }
+
+  //если нажата кнопка удалить
+  if (isset($_POST['remove_category'])) {
+    $sqlRmCat = "DELETE FROM `products_category` WHERE id=('{$_POST['remove_category']}')";
+    if (execute($sqlRmCat)) {
+      header("Location: /shop/category.php");
+    } else {
+      echo "=(";
+    }
+  }
+
   echo render('shop/categories', [
     'cats' => $cats,
   ]);
