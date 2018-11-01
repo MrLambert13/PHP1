@@ -74,4 +74,16 @@ function routeAddgood() {
   }
 }
 
+/**
+ * Выводим список товаров в категории
+ */
+function routeRemoveprod() {
+  $id = $_GET['id'];
+  $sql = "DELETE FROM `products` WHERE 'id'={$id}";
+  if (execute($sql)){
+    header("Location: /shop/category.php");
+  }
+
+}
+
 route();

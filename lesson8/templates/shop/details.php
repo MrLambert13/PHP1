@@ -22,4 +22,10 @@
     </button>
 </p>
 
+<?php if (isAdmin()) : ?>
+<hr/>
+<a href="/shop/category.php?action=removeprod&id=<?= $item['id'] ?>" class="btn btn-primary">Удаление товара</a>
+<?php endif; ?>
+
+
 <script src="/js/product.js" defer></script>
